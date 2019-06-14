@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script  type="text/javascript" src="script/jquery-3.4.1.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="normalize.css">
+
+	<title>Tab</title>
+</head>
+<body>
+	<div class="card" id="maincard">
+		<nav class="card-nav">
+			<div class="card-nav__elements active">
+				<img src="images/tooltip.png" alt="info">
+				<p>information</p>
+			</div>
+			<div class="card-nav__elements">
+				<img src="images/card.png" alt="rate">
+				<p>RATINGS INFO</p>
+			</div>
+			<div class="card-nav__elements">
+				<img src="images/basket.png" alt="basket">
+				<p>WHERE TO BUY</p>
+			</div>	
+		</nav>
+			<div class="content">
+				<div class="main active">
+					<div class="container">
+						<div class="main-left">
+							<img src="images/cover.png" alt="game-card">
+							<img src="images/stars.png" alt="stars">
+						</div>
+						<div class="main-right">
+
+						</div>	
+					</div>	
+				</div>
+
+				<div class="main">
+					<div class="container">
+						<div class="main-left">
+							<img src="images/lara.jpg" alt="game-card">
+							<img src="images/stars.png" alt="stars">
+						</div>
+						<div class="main-right">
+
+						</div>	
+					</div>	
+				</div>
+
+				<div class="main">
+					<div class="container">
+						<div class="main-left">
+							<img src="images/legend.jpg" alt="game-card">
+							<img src="images/stars.png" alt="stars">
+						</div>
+						<div class="main-right">
+
+						</div>	
+					</div>	
+				</div>
+			</div>		
+	<script type="text/javascript">
+
+		$(document).ready(function() { // Ждём загрузки страницы
+			$("card-nav div").click(function() { // Событие нажатия на элемент меню вкладок
+				if (!$(this).hasClass("active")) { // Проверка, не нажали ли мы на уже активный пункт
+					var i = $(this).index(); // Получаем порядковый номер нажатого пункта, отстче идет от 0 (0,1,2)
+					$(".card-nav div.active").removeClass("active"); // Удаляем активный класс у прошлого пункта меню
+					$(".content .active").hide().removeClass("active"); // Скрываем и удаляем активный класс у прошлого контейнера с содержимым
+					$(this).addClass("active"); // Добавляем нажатому пункту меню активный класс
+					$($(".content").children(".main")[i]).fadeIn(1000).addClass("active"); // Показываем и добавляем активный класс соответствующему контейнеру
+				}
+			});
+		});
+	</script>
+</body>		
+</html>	
