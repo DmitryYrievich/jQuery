@@ -63,14 +63,14 @@
 			</div>		
 	<script type="text/javascript">
 
-		$(document).ready(function() { // Ждём загрузки страницы
-			$("card-nav div").click(function() { // Событие нажатия на элемент меню вкладок
-				if (!$(this).hasClass("active")) { // Проверка, не нажали ли мы на уже активный пункт
-					var i = $(this).index(); // Получаем порядковый номер нажатого пункта, отстче идет от 0 (0,1,2)
-					$(".card-nav div.active").removeClass("active"); // Удаляем активный класс у прошлого пункта меню
-					$(".content .active").hide().removeClass("active"); // Скрываем и удаляем активный класс у прошлого контейнера с содержимым
-					$(this).addClass("active"); // Добавляем нажатому пункту меню активный класс
-					$($(".content").children(".main")[i]).fadeIn(1000).addClass("active"); // Показываем и добавляем активный класс соответствующему контейнеру
+		$(document).ready(function() { 
+			$(".card-nav__elements").click(function() { 
+				if (!$(this).hasClass("active")) { 
+					var i = $(this).index(); 
+					$(".card-nav__elements").removeClass("active");
+					$(".main").hide().removeClass("active"); 
+					$(this).addClass("active");	
+					$($(".main")[i]).fadeIn(500).addClass("active");
 				}
 			});
 		});
